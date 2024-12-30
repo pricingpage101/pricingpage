@@ -1,3 +1,4 @@
+// Countdown Timer
 function updateCountdown() {
     const countdownElement = document.getElementById('countdown');
     let [hours, minutes, seconds] = countdownElement.textContent.split(':').map(Number);
@@ -26,3 +27,28 @@ function updateCountdown() {
 }
 
 const timerInterval = setInterval(updateCountdown, 1000);
+
+// User Agreement Handling
+const checkbox = document.getElementById('userAgreement');
+const buyButton = document.getElementById('premiumBuyButton');
+const errorMessage = document.getElementById('agreementError');
+
+checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        buyButton.classList.remove('disabled');
+        errorMessage.style.display = 'none';
+    } else {
+        buyButton.classList.add('disabled');
+    }
+});
+
+buyButton.addEventListener('click', function(e) {
+    if (!checkbox.checked) {
+        e.preventDefault();
+        errorMessage.style.display = 'block';
+        return;
+    }
+    errorMessage.style.display = 'none';
+    // Add your purchase handling code here
+    alert('Proceeding to checkout...');
+});
