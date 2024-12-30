@@ -17,7 +17,7 @@ body {
     padding: 1rem;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 #countdown {
@@ -40,7 +40,7 @@ body {
     border-radius: 10px;
     padding: 2rem;
     width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
@@ -96,11 +96,17 @@ body {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
     background: #27ae60;
+}
+
+.btn.disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .highlight {
@@ -110,6 +116,49 @@ body {
 .all-topics {
     font-weight: bold;
     color: #2ecc71;
+}
+
+.agreement-container {
+    margin: 1rem 0;
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.agreement-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.terms-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.agreement-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.view-terms {
+    font-size: 0.7rem;
+    color: #2ecc71;
+    text-decoration: none;
+    margin-top: 2px;
+}
+
+.view-terms:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    display: none;
 }
 
 @media (max-width: 768px) {
