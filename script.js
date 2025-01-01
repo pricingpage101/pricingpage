@@ -2,19 +2,17 @@
 function updateCountdown() {
     const countdownElement = document.getElementById('countdown');
     let [hours, minutes, seconds] = countdownElement.textContent.split(':').map(Number);
-    
+
     if (seconds > 0) {
         seconds--;
     } else {
         if (minutes > 0) {
             minutes--;
             seconds = 59;
-        } else {
-            if (hours > 0) {
-                hours--;
-                minutes = 59;
-                seconds = 59;
-            }
+        } else if (hours > 0) {
+            hours--;
+            minutes = 59;
+            seconds = 59;
         }
     }
 
@@ -33,7 +31,7 @@ const checkbox = document.getElementById('userAgreement');
 const buyButton = document.getElementById('premiumBuyButton');
 const errorMessage = document.getElementById('agreementError');
 
-checkbox.addEventListener('change', function() {
+checkbox.addEventListener('change', function () {
     if (this.checked) {
         buyButton.classList.remove('disabled');
         errorMessage.style.display = 'none';
@@ -42,13 +40,12 @@ checkbox.addEventListener('change', function() {
     }
 });
 
-buyButton.addEventListener('click', function(e) {
+buyButton.addEventListener('click', function (e) {
     if (!checkbox.checked) {
         e.preventDefault();
         errorMessage.style.display = 'block';
         return;
     }
     errorMessage.style.display = 'none';
-    // Add your purchase handling code here
     alert('Proceeding to checkout...');
 });
